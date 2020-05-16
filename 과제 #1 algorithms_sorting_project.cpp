@@ -17,14 +17,14 @@ int ARRSIZE = SIZE;
 //Menu Display
 int menu() {
 	int x;
-	cout << "¼öÇàÇÒ ÀÛ¾÷À» ¼±ÅÃÇÏ¼¼¿ä." << endl;
-	cout << "1) ·£´ı ÃßÃâÇÑ YouTube µ¿¿µ»ó Á¶È¸¼ö Á¤·Ä" << endl;
-	cout << "2) 2019 ~ 1981³â ±îÁö ¿ø-´Ş·¯ È¯À²" << endl;
-	cout << "3) ÀÎÅÍ³İ °ÔÀÓ ¸®±×¿Àºê·¹Àüµå Æò±Õ ÇÃ·¹ÀÌ ½Ã°£ Á¤·Ä" << endl;
-	cout << "4) 0ºÎÅÍ N±îÁö ·£´ı ¼ıÀÚ Á¤·Ä" << endl;
-	cout << "5) 0ºÎÅÍ N±îÁö Á¤·ÄµÈ ¼ıÀÚ Á¤·Ä" << endl;
-	cout << "6) 0ºÎÅÍ N±îÁö ¿ª¼øÀ¸·Î Á¤·ÄµÈ ¼ıÀÚ Á¤·Ä" << endl;
-	cout << "-1) Á¾·á" << endl;
+	cout << "ìˆ˜í–‰í•  ì‘ì—…ì„ ì„ íƒí•˜ì„¸ìš”." << endl;
+	cout << "1) ëœë¤ ì¶”ì¶œí•œ YouTube ë™ì˜ìƒ ì¡°íšŒìˆ˜ ì •ë ¬" << endl;
+	cout << "2) 2019 ~ 1981ë…„ ê¹Œì§€ ì›-ë‹¬ëŸ¬ í™˜ìœ¨" << endl;
+	cout << "3) ì¸í„°ë„· ê²Œì„ ë¦¬ê·¸ì˜¤ë¸Œë ˆì „ë“œ í‰ê·  í”Œë ˆì´ ì‹œê°„ ì •ë ¬" << endl;
+	cout << "4) 0ë¶€í„° Nê¹Œì§€ ëœë¤ ìˆ«ì ì •ë ¬" << endl;
+	cout << "5) 0ë¶€í„° Nê¹Œì§€ ì •ë ¬ëœ ìˆ«ì ì •ë ¬" << endl;
+	cout << "6) 0ë¶€í„° Nê¹Œì§€ ì—­ìˆœìœ¼ë¡œ ì •ë ¬ëœ ìˆ«ì ì •ë ¬" << endl;
+	cout << "-1) ì¢…ë£Œ" << endl;
 
 	cin >> x;
 	return x;
@@ -42,7 +42,7 @@ void ShowResult(int* arr, int len, string method, const char* resultname);
 //Calculate running time
 void ShowTime(nanoseconds sec, string method);
 
-//argument ¼ıÀÚº°·Î Å×½ºÆ® ½ÇÇàÇÔ¼ö 
+//argument ìˆ«ìë³„ë¡œ í…ŒìŠ¤íŠ¸ ì‹¤í–‰í•¨ìˆ˜ 
 void StartTest_2(void (*SortingAlgorithm)(int*, int), string method, const char* filename, const char* resultname);
 void StartTest_3(void (*SortingAlgorithm)(int*, int, int), string method, const char* filename, const char* resultname);
 void StartTest_1(void (*SortingAlgorithm)(int*), string method, const char* filename, const char* resultname);
@@ -79,7 +79,7 @@ int main() {
 			break;
 
 		switch (x) {
-		case 1:		// ·£´ıÃßÃâÇÑ YouTube µ¿¿µ»ó Á¶È¸¼ö Á¤·Ä 
+		case 1:		// ëœë¤ì¶”ì¶œí•œ YouTube ë™ì˜ìƒ ì¡°íšŒìˆ˜ ì •ë ¬ 
 			StartTest_2(BubbleSort, "Bubble", "youtubeview.txt", "sorted_youtubeview.txt");
 			StartTest_2(SelectionSort, "Selection", "youtubeview.txt", "sorted_youtubeview.txt");
 			StartTest_2(InsertionSort, "Insertion", "youtubeview.txt", "sorted_youtubeview.txt");
@@ -89,7 +89,7 @@ int main() {
 			StartTest_2(SequentialQuickSort, "Sequential Quick", "youtubeview.txt", "sorted_youtubeview.txt");
 			StartTest_2(SequentialMergeSort, "Sequential Merge", "youtubeview.txt", "sorted_youtubeview.txt");
 			break;
-		case 2: 	// 2019 ~ 1981³â ±îÁö ¿ø-´Ş·¯ È¯À² Á¤·Ä 
+		case 2: 	// 2019 ~ 1981ë…„ ê¹Œì§€ ì›-ë‹¬ëŸ¬ í™˜ìœ¨ ì •ë ¬ 
 			StartTest_2(BubbleSort, "Bubble", "exchangerate.txt", "sorted_exchangerate.txt");
 			StartTest_2(SelectionSort, "Selection", "exchangerate.txt", "sorted_exchangerate.txt");
 			StartTest_2(InsertionSort, "Insertion", "exchangerate.txt", "sorted_exchangerate.txt");
@@ -99,7 +99,7 @@ int main() {
 			StartTest_2(SequentialQuickSort, "Sequential Quick", "exchangerate.txt", "sorted_exchangerate.txt");
 			StartTest_2(SequentialMergeSort, "Sequential Merge", "exchangerate.txt", "sorted_exchangerate.txt");
 			break;
-		case 3:		// ÀÎÅÍ³İ °ÔÀÓ ¸®±×¿Àºê·¹Àüµå Æò±Õ ÇÃ·¹ÀÌ ½Ã°£ Á¤·Ä 
+		case 3:		// ì¸í„°ë„· ê²Œì„ ë¦¬ê·¸ì˜¤ë¸Œë ˆì „ë“œ í‰ê·  í”Œë ˆì´ ì‹œê°„ ì •ë ¬ 
 			StartTest_2(BubbleSort, "Bubble", "loltime.txt", "sorted_loltime.txt");
 			StartTest_2(SelectionSort, "Selection", "loltime.txt", "sorted_loltime.txt");
 			StartTest_2(InsertionSort, "Insertion", "loltime.txt", "sorted_loltime.txt");
@@ -109,10 +109,10 @@ int main() {
 			StartTest_2(SequentialQuickSort, "Sequential Quick", "loltime.txt", "sorted_loltime.txt");
 			StartTest_2(SequentialMergeSort, "Sequential Merge", "loltime.txt", "sorted_loltime.txt");
 			break;
-		case 4:		//·£´ıÇÑ ¼ıÀÚµ¥ÀÌÅÍ ÅØ½ºÆ®ÆÄÀÏÀ» »ı¼º
-			cout << "100,000 ÀÌÇÏÀÇ Á¤¼ö ÀÔ·Â" << endl;
+		case 4:		//ëœë¤í•œ ìˆ«ìë°ì´í„° í…ìŠ¤íŠ¸íŒŒì¼ì„ ìƒì„±
+			cout << "100,000 ì´í•˜ì˜ ì •ìˆ˜ ì…ë ¥" << endl;
 			cin >> ARRSIZE;
-			ReRoll_Random();			//input.txt¿¡ ·£´ıÇÑ ¹è¿­ »ı¼º 
+			ReRoll_Random();			//input.txtì— ëœë¤í•œ ë°°ì—´ ìƒì„± 
 			StartTest_2(BubbleSort, "Bubble", "input.txt", "sorted_random.txt");
 			StartTest_2(SelectionSort, "Selection", "input.txt", "sorted_random.txt");
 			StartTest_2(InsertionSort, "Insertion", "input.txt", "sorted_random.txt");
@@ -122,10 +122,10 @@ int main() {
 			StartTest_2(SequentialQuickSort, "Sequential Quick", "input.txt", "sorted_random.txt");
 			StartTest_2(SequentialMergeSort, "Sequential Merge", "input.txt", "sorted_random.txt");
 			break;
-		case 5: 	//Á¤·ÄµÈ ¼ıÀÚµ¥ÀÌÅÍ ÅØ½ºÆ®ÆÄÀÏÀ» »ı¼º
-			cout << "100,000 ÀÌÇÏÀÇ Á¤¼ö ÀÔ·Â" << endl;
+		case 5: 	//ì •ë ¬ëœ ìˆ«ìë°ì´í„° í…ìŠ¤íŠ¸íŒŒì¼ì„ ìƒì„±
+			cout << "100,000 ì´í•˜ì˜ ì •ìˆ˜ ì…ë ¥" << endl;
 			cin >> ARRSIZE;
-			ReRoll_Sorted();			//input.txt¿¡ Á¤·ÄµÈ ¹è¿­ »ı¼º 
+			ReRoll_Sorted();			//input.txtì— ì •ë ¬ëœ ë°°ì—´ ìƒì„± 
 			StartTest_2(BubbleSort, "Bubble", "input.txt", "sorted_sorted.txt");
 			StartTest_2(SelectionSort, "Selection", "input.txt", "sorted_sorted.txt");
 			StartTest_2(InsertionSort, "Insertion", "input.txt", "sorted_sorted.txt");
@@ -135,10 +135,10 @@ int main() {
 			StartTest_2(SequentialQuickSort, "Sequential Quick", "input.txt", "sorted_sorted.txt");
 			StartTest_2(SequentialMergeSort, "Sequential Merge", "input.txt", "sorted_sorted.txt");
 			break;
-		case 6: 	//¿ª¼øÀ¸·Î Á¤·ÄµÈ ¼ıÀÚµ¥ÀÌÅÍ ÅØ½ºÆ®ÆÄÀÏÀ» »ı¼º
-			cout << "100,000 ÀÌÇÏÀÇ Á¤¼ö ÀÔ·Â" << endl;
+		case 6: 	//ì—­ìˆœìœ¼ë¡œ ì •ë ¬ëœ ìˆ«ìë°ì´í„° í…ìŠ¤íŠ¸íŒŒì¼ì„ ìƒì„±
+			cout << "100,000 ì´í•˜ì˜ ì •ìˆ˜ ì…ë ¥" << endl;
 			cin >> ARRSIZE;
-			ReRoll_InverseSorted();			//input.txt¿¡ ¿ª¼øÀ¸·Î Á¤·ÄµÈ ¹è¿­ »ı¼º 
+			ReRoll_InverseSorted();			//input.txtì— ì—­ìˆœìœ¼ë¡œ ì •ë ¬ëœ ë°°ì—´ ìƒì„± 
 			StartTest_2(BubbleSort, "Bubble", "input.txt", "sorted_inversesorted.txt");
 			StartTest_2(SelectionSort, "Selection", "input.txt", "sorted_inversesorted.txt");
 			StartTest_2(InsertionSort, "Insertion", "input.txt", "sorted_inversesorted.txt");
@@ -359,15 +359,15 @@ void MergeTwoArr(int arr[], int left, int mid, int right) {
 	int n2 = right - mid;
 	int* L;
 	int* R;
-	// ÀÓ½Ã ¹è¿­ »ı¼º
+	// ì„ì‹œ ë°°ì—´ ìƒì„±
 	L = new int[sizeof(int) * n1];
 	R = new int[sizeof(int) * n2];
-	// ÀÓ½Ã ¹è¿­¿¡´Ù°¡ µ¥ÀÌÅÍ¸¦ º¹»ç
+	// ì„ì‹œ ë°°ì—´ì—ë‹¤ê°€ ë°ì´í„°ë¥¼ ë³µì‚¬
 	for (i = 0; i < n1; i++)
 		L[i] = arr[left + i];
 	for (j = 0; j < n2; j++)
 		R[j] = arr[mid + 1 + j];
-	// ´Ù½Ã ÀÓ½Ã ¹è¿­µéÀ» ÇÕÄ£´Ù
+	// ë‹¤ì‹œ ì„ì‹œ ë°°ì—´ë“¤ì„ í•©ì¹œë‹¤
 	i = 0;
 	j = 0;
 	k = left;
@@ -382,13 +382,13 @@ void MergeTwoArr(int arr[], int left, int mid, int right) {
 		}
 		k++;
 	}
-	// ³²¾Æ ÀÖ´Â LÀÇ ³ª¸ÓÁö°ªÀ» º¹»çÇÑ´Ù
+	// ë‚¨ì•„ ìˆëŠ” Lì˜ ë‚˜ë¨¸ì§€ê°’ì„ ë³µì‚¬í•œë‹¤
 	while (i < n1){
 		arr[k] = L[i];
 		i++;
 		k++;
 	}
-	// ³²¾Æ ÀÖ´Â RÀÇ ³ª¸ÓÁö°ªÀ» º¹»çÇÑ´Ù
+	// ë‚¨ì•„ ìˆëŠ” Rì˜ ë‚˜ë¨¸ì§€ê°’ì„ ë³µì‚¬í•œë‹¤
 	while (j < n2){
 		arr[k] = R[j];
 		j++;
@@ -408,11 +408,11 @@ void MergeSort(int arr[], int left, int right) {
 int Partition(int arr[], int left, int right) {
 	static int cnt = 0;
 	int front, rear;
-	int pivot = left + rand() % (right - left + 1); 			//ÇÇº¿ ·£´ı ¼±ÅÃ 
-	//int pivot = right;											//ÇÇº¿ ¿À¸¥ÂÊ °ª ¼± 
+	int pivot = left + rand() % (right - left + 1); 			//í”¼ë´‡ ëœë¤ ì„ íƒ 
+	//int pivot = right;											//í”¼ë´‡ ì˜¤ë¥¸ìª½ ê°’ ì„  
 
 	int pivotval = arr[pivot];
-	Swapping(&arr[pivot], &arr[right]);							//pivotÀ» ¸Ç ¿À¸¥ÂÊ¿¡ ³õ´Â´Ù. 
+	Swapping(&arr[pivot], &arr[right]);							//pivotì„ ë§¨ ì˜¤ë¥¸ìª½ì— ë†“ëŠ”ë‹¤. 
 
 	front = left;
 	rear = right - 1;
@@ -477,35 +477,35 @@ void SequentialQuickSort(int* arr, int n) {
 	int* pBase;
 	int top = -1;
 
-	// ÀÎµ¦½º¸¦ ÀúÀåÇÒ ½ºÅÃ ÇÒ´ç: ÃÖ´ë ½ºÅÃÀÇ Å©±â 2n+2 <--- ¿ª¼øÁ¤·Ä½Ã ÃÖ´ë ½ºÅÃ ÇÊ¿ä
+	// ì¸ë±ìŠ¤ë¥¼ ì €ì¥í•  ìŠ¤íƒ í• ë‹¹: ìµœëŒ€ ìŠ¤íƒì˜ í¬ê¸° 2n+2 <--- ì—­ìˆœì •ë ¬ì‹œ ìµœëŒ€ ìŠ¤íƒ í•„ìš”
 	pBase = new int[sizeof(int) * (2 * n + 2)];
 	if (!pBase) {
 		return;
 	}
 
-	// Ã¹¹øÂ° ¿ä¼Ò push: ¸ÕÀú ²¨³»·Á´Â °ÍÀ» ³ªÁß¿¡ pushÇØ¾ß ÇÑ´Ù.(LIFO ±¸Á¶)
+	// ì²«ë²ˆì§¸ ìš”ì†Œ push: ë¨¼ì € êº¼ë‚´ë ¤ëŠ” ê²ƒì„ ë‚˜ì¤‘ì— pushí•´ì•¼ í•œë‹¤.(LIFO êµ¬ì¡°)
 	pBase[++top] = n - 1;
 	pBase[++top] = 0;
 
-	// ½ºÅÃÀÌ empty »óÅÂ¸é ºüÁ®³ª¿Â´Ù.
+	// ìŠ¤íƒì´ empty ìƒíƒœë©´ ë¹ ì ¸ë‚˜ì˜¨ë‹¤.
 	while (top != -1) {
 		// pop
 		start = pBase[top--]; // pop
 		end = pBase[top--]; // pop
 
-		// °¹¼ö°¡ 2 ÀÌ»óÀÎ °æ¿ì
+		// ê°¯ìˆ˜ê°€ 2 ì´ìƒì¸ ê²½ìš°
 		if (end - start + 1 > 1) {
 
-			// ÇÇ¹ş °áÁ¤
+			// í”¼ë²— ê²°ì •
 			pv = arr[end];
 
-			// ÁÂ¿ìÃø ÀÎµ¦½º ¼³Á¤ ¹× ºñ±³, ±³È¯
+			// ì¢Œìš°ì¸¡ ì¸ë±ìŠ¤ ì„¤ì • ë° ë¹„êµ, êµí™˜
 			left = start; right = end - 1;
 			while (1) {
 				while (arr[left] < pv)
 					++left;
 				while (right > start && arr[right] > pv)
-					--right; 				// ½ÃÀÛ ÀÎµ¦½ºº¸´Ù ÀÛ°Å³ª °°À¸¸é °ª Á¶»ç ÇÊ¿ä ¾ø´Ù.
+					--right; 				// ì‹œì‘ ì¸ë±ìŠ¤ë³´ë‹¤ ì‘ê±°ë‚˜ ê°™ìœ¼ë©´ ê°’ ì¡°ì‚¬ í•„ìš” ì—†ë‹¤.
 				if (left >= right)
 					break;
 				t = arr[left];
@@ -515,11 +515,11 @@ void SequentialQuickSort(int* arr, int n) {
 				--right;
 			}
 
-			// ÇÇ¹ş ÀÚ¸®¿Í left ÀÚ¸® ±³È¯
+			// í”¼ë²— ìë¦¬ì™€ left ìë¦¬ êµí™˜
 			arr[end] = arr[left];
 			arr[left] = pv;
 
-			// ÁÂ¿ìÃø push: ¸ÕÀú ²¨³»·Á´Â °ÍÀ» ³ªÁß¿¡ pushÇØ¾ß ÇÑ´Ù.(LIFO ±¸Á¶)
+			// ì¢Œìš°ì¸¡ push: ë¨¼ì € êº¼ë‚´ë ¤ëŠ” ê²ƒì„ ë‚˜ì¤‘ì— pushí•´ì•¼ í•œë‹¤.(LIFO êµ¬ì¡°)
 			pBase[++top] = end;   // push(end);
 			pBase[++top] = left + 1;  // push(left+1);
 			pBase[++top] = left - 1;  // push(left-1);
@@ -527,7 +527,7 @@ void SequentialQuickSort(int* arr, int n) {
 		}
 	}
 
-	// ½ºÅÃ ÇØÁ¦
+	// ìŠ¤íƒ í•´ì œ
 	delete[] pBase;
 }
 
@@ -536,10 +536,10 @@ void SequentialMergeSort(int * arr, int len){
 	temp = new int[sizeof(int) * (len)];
 	int i,j,k,l1,h1,l2,h2;
 
-	//l1Àº lower bound.
+	//l1ì€ lower bound.
 	for(int size=1; size < len; size=size*2 ){
 		l1=0;
-		k=0;  //temp array¿¡ Á¢±ÙÇÏ±â À§ÇÑ index
+		k=0;  //temp arrayì— ì ‘ê·¼í•˜ê¸° ìœ„í•œ index
 		while( l1+size < len){
 			h1=l1+size-1;
 			l2=h1+1;
@@ -548,7 +548,7 @@ void SequentialMergeSort(int * arr, int len){
 			if( h2>=len ) 
 				h2=len-1;
 			
-			//µÎ°³¸¦ ÇÕÄ¡´Â °úÁ¤
+			//ë‘ê°œë¥¼ í•©ì¹˜ëŠ” ê³¼ì •
 			i=l1;
 			j=l2;
 	
@@ -562,10 +562,10 @@ void SequentialMergeSort(int * arr, int len){
 				temp[k++]=arr[i++];
 			while(j<=h2)
 				temp[k++]=arr[j++];
-			//Merge ¼º°ø
+			//Merge ì„±ê³µ
 			l1=h2+1; 
 		}
-		//³²Àº°Í ´Ù½Ã ³Ö±â
+		//ë‚¨ì€ê²ƒ ë‹¤ì‹œ ë„£ê¸°
 		for(i=l1; k<len; i++) 
 			temp[k++]=arr[i];
 
