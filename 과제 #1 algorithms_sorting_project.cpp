@@ -573,5 +573,3 @@ void SequentialMergeSort(int * arr, int len){
 			arr[i]=temp[i];
 	}
 }
-
-
