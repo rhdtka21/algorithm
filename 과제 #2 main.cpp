@@ -21,12 +21,12 @@ string inputProcess(tree* treeMain, string input){
         break;
     case 's':
     	if(treeMain->_search(stoi(input))==NULL)
-    		return "Ã£À»¼ö ¾ø½À´Ï´Ù.\n";
+    		return "ì°¾ì„ìˆ˜ ì—†ìŠµë‹ˆë‹¤.\n";
     	else
-    		return "Á¸ÀçÇÕ´Ï´Ù.\n";
+    		return "ì¡´ì¬í•©ë‹ˆë‹¤.\n";
         break;
     default:
-        return "À¯È¿ÇÏÁö ¾ÊÀº ¸í·ÉÀÔ´Ï´Ù.\n"; 
+        return "ìœ íš¨í•˜ì§€ ì•Šì€ ëª…ë ¹ì…ë‹ˆë‹¤.\n"; 
         break;
 	}
 }
@@ -36,10 +36,10 @@ int mainPrint(){
 	
 	cout << "--------------------------" <<endl;
 	cout << "Algorithm Assignment #2 " <<endl;
-	cout << "À¶ÇÕÀüÀÚ°øÇĞºÎ 2015003209 " <<endl;
-	cout << "¼®Á¤¿ì" <<endl;
+	cout << "ìœµí•©ì „ìê³µí•™ë¶€ 2015003209 " <<endl;
+	cout << "ì„ì •ìš°" <<endl;
 	cout << "--------------------------" <<endl;
-	cout << "¸ğµå¸¦ ¼±ÅÃÇÏ¼¼¿ä.\n1) batch mode\n2) interactive mode" <<endl;
+	cout << "ëª¨ë“œë¥¼ ì„ íƒí•˜ì„¸ìš”.\n1) batch mode\n2) interactive mode" <<endl;
 	 
 	cin >> i;
 	return i;
@@ -52,9 +52,9 @@ int main(int argc, char *argv[]){
     string inputString;
     char * filename;
  
-    if(argc>1)		//batch mode·Î ÀÔ·Â¹ŞÀ»¶§. 
+    if(argc>1)		//batch modeë¡œ ì…ë ¥ë°›ì„ë•Œ. 
 		filename = argv[1];
-	else			//±×³É ½ÇÇàÇÒ¶§. 
+	else			//ê·¸ëƒ¥ ì‹¤í–‰í• ë•Œ. 
 		filename = (char*)("batch.txt");
 	
     ifstream in(filename);
@@ -79,7 +79,7 @@ int main(int argc, char *argv[]){
 			} 
 			else {
 			
-				cout << "ÆÄÀÏÀ» Ã£À» ¼ö ¾ø½À´Ï´Ù!" << endl;
+				cout << "íŒŒì¼ì„ ì°¾ì„ ìˆ˜ ì—†ìŠµë‹ˆë‹¤!" << endl;
 			}
 			break;
 		}
@@ -88,7 +88,7 @@ int main(int argc, char *argv[]){
 		case 2:{
 			while(true){
 				string temp;
-		        cout << "¸í·ÉÀ» ÀÔ·ÂÇÏ¼¼¿ä. (i:input, d:delete, s:search, f:finish) " << endl;
+		        cout << "ëª…ë ¹ì„ ì…ë ¥í•˜ì„¸ìš”. (i:input, d:delete, s:search, f:finish) " << endl;
 		        cin >> inputString;
 		        cout << inputString <<endl;
 		        out << inputString <<endl;
