@@ -30,7 +30,7 @@ node::node(int* eles, node** cd){
 
 string node::getStringAllElements(){
     if (elements[0]==0) {
-        return "ÇØ´ç element°¡ Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù.";
+        return "í•´ë‹¹ elementê°€ ì¡´ì¬í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.";
     }
     string e = "(";
     int i=1;
@@ -46,25 +46,25 @@ node* node::getParent(){
 }
 
 
-// »óÀ§Å¬·¡½º tree¿¡ ÀÇÇÏ¿© input parameter idxÀÇ À¯È¿¼ºÀ» º¸Àå
-//childeren Áß idx¸¦ ÁöÁ¤ÇØ¼­ ¹İÈ¯ 
+// ìƒìœ„í´ë˜ìŠ¤ treeì— ì˜í•˜ì—¬ input parameter idxì˜ ìœ íš¨ì„±ì„ ë³´ì¥
+//childeren ì¤‘ idxë¥¼ ì§€ì •í•´ì„œ ë°˜í™˜ 
 node* node::getChild(int idx){
     return children[idx];
 }
-//elements ¸ğµÎ ¹İÈ¯ 
+//elements ëª¨ë‘ ë°˜í™˜ 
 int* node::getElementsAll(){
     return elements;
 }
-//children ¸ğµÎ ¹İÈ¯ 
+//children ëª¨ë‘ ë°˜í™˜ 
 node** node::getChildrenAll(){
     return children;
 }
-//Ã¹¹øÂ° element¹İÈ¯ 
+//ì²«ë²ˆì§¸ elementë°˜í™˜ 
 int node::getFirstElement(){
     return elements[1];
 }
 
-//³»°¡ ¸î¹øÂ° childrenÀÎÁö ÆÄ¾Ç 
+//ë‚´ê°€ ëª‡ë²ˆì§¸ childrenì¸ì§€ íŒŒì•… 
 int node::getParentIdx(){
     int myidx = 0;
     
@@ -75,19 +75,19 @@ int node::getParentIdx(){
     return myidx;
 }
 
-//ÇöÀç ³ëµåÀÇ »óÅÂ (2, 3, 4) ¹İÈ¯ 
+//í˜„ì¬ ë…¸ë“œì˜ ìƒíƒœ (2, 3, 4) ë°˜í™˜ 
 int node::getSize(){
     return elements[0];
 }
 
-// ÀÚ½ÅÀ» Æ÷ÇÔÇÑ sibling nodeÀÇ °¹¼ö¸¦ ¹İÈ¯
+// ìì‹ ì„ í¬í•¨í•œ sibling nodeì˜ ê°¯ìˆ˜ë¥¼ ë°˜í™˜
 int node::getSiblingNum(){
     return parent->getSize()+1;
 }
 
-// »óÀ§Å¬·¡½º tree¿¡ ÀÇÇÏ¿© siblingÀÌ ¹İµå½Ã Á¸ÀçÇÏ´Â node¿¡¼­¸¸ È£ÃâµÊÀ» º¸Àå
-// siblingÀÌ ¾ø´Â °æ¿ìÀÎ root¸¸ Á¸ÀçÇÏ´Â °æ¿ì treeÅ¬·¡½º°¡ ¿¹¿ÜÃ³¸®
-// sibling Áß 3,4 node°¡ ¿ì¼± ¼øÀ§¸¦ °®°í ¹İÈ¯
+// ìƒìœ„í´ë˜ìŠ¤ treeì— ì˜í•˜ì—¬ siblingì´ ë°˜ë“œì‹œ ì¡´ì¬í•˜ëŠ” nodeì—ì„œë§Œ í˜¸ì¶œë¨ì„ ë³´ì¥
+// siblingì´ ì—†ëŠ” ê²½ìš°ì¸ rootë§Œ ì¡´ì¬í•˜ëŠ” ê²½ìš° treeí´ë˜ìŠ¤ê°€ ì˜ˆì™¸ì²˜ë¦¬
+// sibling ì¤‘ 3,4 nodeê°€ ìš°ì„  ìˆœìœ„ë¥¼ ê°–ê³  ë°˜í™˜
 
 node* node::getSibling(){
     int myidx = getParentIdx();
@@ -114,10 +114,10 @@ void node::setParent(node* n){
     parent = n;
 }
 
-// fusion case¿¡µµ child´Â ¸Ç ¾Õ index ¶Ç´Â ¸Ç µÚ index¿¡ Ãß°¡µÇ´Â °æ¿ì¸¸ Á¸Àç
-// elementÀÇ À¯È¿¼º¿¡ °ü¿©X, Ãß°¡µÈ child¿Í °ü°èÇÏ´Â element´Â tree¿¡ ÀÇÇØ Ãß°¡µÊÀ» º¸Àå
-// ¿ÜºÎ¿¡¼­ child node°¡ Ãß°¡µÇ´Â °æ¿ì¿¡´Â deleteÀÇ fusion °æ¿ì
-// insertÀÇnode´Â addChildFromQueue¿¡¼­ Ã³¸®ÇÑ´Ù. (Å¥¸¦ »ç¿ëÇÑ ÀÌÀ¯) 
+// fusion caseì—ë„ childëŠ” ë§¨ ì• index ë˜ëŠ” ë§¨ ë’¤ indexì— ì¶”ê°€ë˜ëŠ” ê²½ìš°ë§Œ ì¡´ì¬
+// elementì˜ ìœ íš¨ì„±ì— ê´€ì—¬X, ì¶”ê°€ëœ childì™€ ê´€ê³„í•˜ëŠ” elementëŠ” treeì— ì˜í•´ ì¶”ê°€ë¨ì„ ë³´ì¥
+// ì™¸ë¶€ì—ì„œ child nodeê°€ ì¶”ê°€ë˜ëŠ” ê²½ìš°ì—ëŠ” deleteì˜ fusion ê²½ìš°
+// insertì˜nodeëŠ” addChildFromQueueì—ì„œ ì²˜ë¦¬í•œë‹¤. (íë¥¼ ì‚¬ìš©í•œ ì´ìœ ) 
 
 
 node* node::addChild(int idx, node* child){
@@ -134,8 +134,8 @@ node* node::addChild(int idx, node* child){
 }
 
 
-// ³ëµå ÀÔ·Â¹üÀ§ ÃÊ°úÇÏ¸é -1 return
-// Ãß°¡µÈ element¿¡ ÀÇÇØ ºó childrenÀº tree ÀÇÇØ Ã¤¿öÁø´Ù 
+// ë…¸ë“œ ì…ë ¥ë²”ìœ„ ì´ˆê³¼í•˜ë©´ -1 return
+// ì¶”ê°€ëœ elementì— ì˜í•´ ë¹ˆ childrenì€ tree ì˜í•´ ì±„ì›Œì§„ë‹¤ 
  
 int node::addElement(int ele){
 
@@ -156,9 +156,9 @@ int node::addElement(int ele){
     }
     
     elements[i+1] = ele;
-    //»çÀÌÁî Áõ°¡
+    //ì‚¬ì´ì¦ˆ ì¦ê°€
     elements[0]++;
-    //Á¤»ó½ÇÇà½Ã 0 ¹İÈ¯
+    //ì •ìƒì‹¤í–‰ì‹œ 0 ë°˜í™˜
     return 0;
 }
 
@@ -180,10 +180,10 @@ int node::addElementByIdx(int ele, int idx){
     return 0;
 }
 
-// splitµÈ nodeµéÀ» queue¿¡¼­ ²¨³» input nodeÀÇ childrenÀ¸·Î ¿¬°á
+// splitëœ nodeë“¤ì„ queueì—ì„œ êº¼ë‚´ input nodeì˜ childrenìœ¼ë¡œ ì—°ê²°
 
 int node::addChildFromQueue(node* n){
-	//Å¥°¡ ºñ¸é ÇØ´çX 
+	//íê°€ ë¹„ë©´ í•´ë‹¹X 
     if (q.empty()) return -1;
 
     int idxNull = 0;
@@ -209,13 +209,13 @@ int node::addChildFromQueue(node* n){
 }
 
 
-// »óÀ§Å¬·¡½º tree¿¡ ÀÇÇØ¼­elementsÀÇ »çÀÌÁî°¡ 5ÀÎ node¿¡¼­¸¸ È£ÃâµÊÀ» º¸Àå
-// splitµÈ node´Â node classÀÇ static queue¿¡ ÀúÀåµÇ¾î¼­ addChildFromQueue ÇÔ¼ö¿¡¼­ »ç¿ë
+// ìƒìœ„í´ë˜ìŠ¤ treeì— ì˜í•´ì„œelementsì˜ ì‚¬ì´ì¦ˆê°€ 5ì¸ nodeì—ì„œë§Œ í˜¸ì¶œë¨ì„ ë³´ì¥
+// splitëœ nodeëŠ” node classì˜ static queueì— ì €ì¥ë˜ì–´ì„œ addChildFromQueue í•¨ìˆ˜ì—ì„œ ì‚¬ìš©
 int node::split(){
     int ele1[3], ele2[2];
     node* ptre1[3], *ptre2[2];
     
-    // Ã¹¹øÂ° split¿¡ ¿Å°Ü´ã´Â´Ù. 
+    // ì²«ë²ˆì§¸ splitì— ì˜®ê²¨ë‹´ëŠ”ë‹¤. 
     ele1[0] = 2;
     ptre1[0] = children[0];
     for (int i=1; i<3; i++) {
@@ -226,7 +226,7 @@ int node::split(){
     node* child1 = new node(ele1, ptre1);
     q.push(child1);
     
-    // µÎ¹øÂ° split¿¡ ¿Å°Ü´ã´Â´Ù. 
+    // ë‘ë²ˆì§¸ splitì— ì˜®ê²¨ë‹´ëŠ”ë‹¤. 
     ele2[0] = 1;
     ele2[1] = elements[4];
     ptre2[0] = children[3];
@@ -243,8 +243,8 @@ int node::split(){
 
 
 
-// element°¡ Á¸ÀçÇÏÁö¾ÊÀ¸¸é -1 return
-// »óÀ§ Å¬·¡½º tree¿¡ ÀÇÇØ¼­ Ç×»ó »èÁ¦ÇÒ element°¡ Á¸ÀçÇÏ´Â node¿¡¼­¸¸ È£ÃâµÊÀ» º¸Àå¹Ş´Â´Ù.
+// elementê°€ ì¡´ì¬í•˜ì§€ì•Šìœ¼ë©´ -1 return
+// ìƒìœ„ í´ë˜ìŠ¤ treeì— ì˜í•´ì„œ í•­ìƒ ì‚­ì œí•  elementê°€ ì¡´ì¬í•˜ëŠ” nodeì—ì„œë§Œ í˜¸ì¶œë¨ì„ ë³´ì¥ë°›ëŠ”ë‹¤.
  
 
 int node::delElement(int ele){
@@ -268,7 +268,7 @@ int node::delElement(int ele){
 }
 
 
-// °°Àº element°¡ Á¸ÀçÇÒ ¶§ »ı±â´Â ÀÌ½´·Î ÀÎÇØ idx·Î element¸¦ »èÁ¦ÇÏ´Â function Ãß°¡
+// ê°™ì€ elementê°€ ì¡´ì¬í•  ë•Œ ìƒê¸°ëŠ” ì´ìŠˆë¡œ ì¸í•´ idxë¡œ elementë¥¼ ì‚­ì œí•˜ëŠ” function ì¶”ê°€
 
 int node::delElementByIdx(int idx, int direc){
     int size = elements[0];
@@ -292,7 +292,7 @@ int node::delElementByIdx(int idx, int direc){
     return dltedEle;
 }
 
-// »óÀ§Å¬·¡½º tree¿¡ ÀÇÇØ¼­ ´ëÃ¼µÉ element°¡ Ç×»ó Á¸ÀçÇÏ´Â leaf node¿¡¼­¸¸ È£ÃâµÊÀ» º¸Àå¹Ş´Â´Ù. 
+// ìƒìœ„í´ë˜ìŠ¤ treeì— ì˜í•´ì„œ ëŒ€ì²´ë  elementê°€ í•­ìƒ ì¡´ì¬í•˜ëŠ” leaf nodeì—ì„œë§Œ í˜¸ì¶œë¨ì„ ë³´ì¥ë°›ëŠ”ë‹¤. 
 
 int node::changeElement(int ori, int src){
     int size = elements[0];
@@ -307,7 +307,7 @@ int node::changeElement(int ori, int src){
 }
 
 
-// °°Àº element°¡ Á¸ÀçÇÒ ¶§ »ı±â´Â ÀÌ½´·Î ÀÎÇØ idx·Î element¸¦ º¯°æÇÏ´Â function Ãß°¡
+// ê°™ì€ elementê°€ ì¡´ì¬í•  ë•Œ ìƒê¸°ëŠ” ì´ìŠˆë¡œ ì¸í•´ idxë¡œ elementë¥¼ ë³€ê²½í•˜ëŠ” function ì¶”ê°€
 
 int node::changeByIdx(int originIdx, int src){
     int originEle = elements[originIdx];
@@ -318,7 +318,7 @@ int node::changeByIdx(int originIdx, int src){
 
 
 
-//»ı¼ºÀÚ. root node¸¦ »ı¼ºÇÕ´Ï´Ù. 
+//ìƒì„±ì. root nodeë¥¼ ìƒì„±í•©ë‹ˆë‹¤. 
 tree::tree(){
     root = new node();
 }
@@ -326,23 +326,23 @@ tree::tree(){
 //getters
 
 node* tree::getInsert(int val){
-	//rootºÎÅÍ ½ÃÀÛ. 
+	//rootë¶€í„° ì‹œì‘. 
     node* searchNode = root;
-    //rootÀÇ ºÎ¸ğ´Â ¾øÀ½. 
+    //rootì˜ ë¶€ëª¨ëŠ” ì—†ìŒ. 
     node* parentSearchNode = NULL;
-    //¾Æ·¡·Î Å½»ö. 
+    //ì•„ë˜ë¡œ íƒìƒ‰. 
     while (searchNode != NULL) {
         int i = 1;
-        //³ëµå¿¡ ´ã±ä °ªµéÀÇ ¹è¿­À» Àü´Ş. 
+        //ë…¸ë“œì— ë‹´ê¸´ ê°’ë“¤ì˜ ë°°ì—´ì„ ì „ë‹¬. 
         int* ptrval = searchNode->getElementsAll();
-        //±× ¹è¿­ÀÇ »çÀÌÁî(ptrval[0]¿¡ »çÀÌÁî°¡ ÀúÀåµÇ¾îÀÖÀ½)¸¸Å­ Å½»ö. 
+        //ê·¸ ë°°ì—´ì˜ ì‚¬ì´ì¦ˆ(ptrval[0]ì— ì‚¬ì´ì¦ˆê°€ ì €ì¥ë˜ì–´ìˆìŒ)ë§Œí¼ íƒìƒ‰. 
         for (; i<ptrval[0]+1; i++) {
             if (val > ptrval[i])
 				continue;
             else
 				break;
         }
-        //¾Æ·¡·Î ³»·Á°¨. 
+        //ì•„ë˜ë¡œ ë‚´ë ¤ê°. 
         parentSearchNode = searchNode;
         searchNode = searchNode -> getChild(i-1);
     }
@@ -352,7 +352,7 @@ node* tree::getInsert(int val){
 
 
 
-// ÇØ´ç nodeÀÇ elementÀÇ ¹Ù·Î Àü successor node¸¦ ¹İ¤¾¤È¤¤. 
+// í•´ë‹¹ nodeì˜ elementì˜ ë°”ë¡œ ì „ successor nodeë¥¼ ë°˜ã…ã…˜ã„´. 
 
 node* tree::getSuccessor(node* n, int val){
     node* parent = n;
@@ -374,9 +374,9 @@ node* tree::getSuccessor(node* n, int val){
 
 //command methods
 
-//insert command¸¦ ¼öÇà 
+//insert commandë¥¼ ìˆ˜í–‰ 
 int tree::_insert(int val){
-	//³ÖÀ» À§Ä¡ ¼±Á¤
+	//ë„£ì„ ìœ„ì¹˜ ì„ ì •
     node* insertNode = getInsert(val);
     node* parent = insertNode->getParent();
     insertNode->addElement(val);
@@ -391,8 +391,8 @@ int tree::_insert(int val){
         
         node::addChildFromQueue(parent);
         
-        // ¸Ş¸ğ¸® ÇØÁ¦ÇØ¾ß ÇÏ´Â °æ¿ì°¡ ´õ ÀÖ´Â°¡? 
-        // - 4³ëµå¸¦ ÃÊ°úÇÏ´Â °æ¿ì = splitÇÑ ÈÄ¿¡ original node¸¦ ¸Ş¸ğ¸® ÇØÁ¦
+        // ë©”ëª¨ë¦¬ í•´ì œí•´ì•¼ í•˜ëŠ” ê²½ìš°ê°€ ë” ìˆëŠ”ê°€? 
+        // - 4ë…¸ë“œë¥¼ ì´ˆê³¼í•˜ëŠ” ê²½ìš° = splití•œ í›„ì— original nodeë¥¼ ë©”ëª¨ë¦¬ í•´ì œ
         delete [] insertNode;
         
         insertNode = parent;
@@ -402,7 +402,7 @@ int tree::_insert(int val){
 }
 
 
-// internal node¿¡ »èÁ¦ÇÒ valment°¡ Á¸ÀçÇÏ´Â °æ¿ìsuccessor leaf¿Í swap 
+// internal nodeì— ì‚­ì œí•  valmentê°€ ì¡´ì¬í•˜ëŠ” ê²½ìš°successor leafì™€ swap 
 
 int tree::_delete(int val){
     node* n = _search(val);
@@ -414,14 +414,14 @@ int tree::_delete(int val){
     if (n!=successor) {
         int successEle = successor->changeByIdx(NodeSize, val);
         n->changeElement(val, successEle);
-        successor->delElementByIdx(NodeSize, 1); // ¹«Á¶°Ç leaf node¿¡¼­¸¸ ¹ß»ı
+        successor->delElementByIdx(NodeSize, 1); // ë¬´ì¡°ê±´ leaf nodeì—ì„œë§Œ ë°œìƒ
     } else {
         successor->delElement(val);
     }
     
     if (NodeSize==2 || NodeSize==3 || successor == root) return 0;
     
-    // leaf node°¡ 2nodeÀÏ °æ¿ì
+    // leaf nodeê°€ 2nodeì¼ ê²½ìš°
     q.push(successor);
     
     while (!q.empty()) {
@@ -432,12 +432,12 @@ int tree::_delete(int val){
         int nodeParentIdx = n->getParentIdx();
         int siblingParentIdx = sibling->getParentIdx();
         
-        // transferOffset>0  siblingÀº right sibling
+        // transferOffset>0  siblingì€ right sibling
         int transferOffset = (siblingParentIdx - nodeParentIdx + 1)/2;
         int parentEleIdx = nodeParentIdx + transferOffset;
         
         if (sibling->getSize()!=1) {
-            //transfer °úÁ¤
+            //transfer ê³¼ì •
             int EleFromSibling;
             node* ChildFromSibling;
             
@@ -445,7 +445,7 @@ int tree::_delete(int val){
             	EleFromSibling = sibling->getElementsAll()[1];
 				ChildFromSibling = sibling->getChild(0);
 			}
-			//¸Ç ¿ŞÂÊÀÎ°æ¿ì. 
+			//ë§¨ ì™¼ìª½ì¸ê²½ìš°. 
 			else{
 				EleFromSibling = sibling->getElementsAll()[sibling->getSize()];
 				ChildFromSibling = sibling->getChild(sibling->getSize());
@@ -469,7 +469,7 @@ int tree::_delete(int val){
         } else {
         	
         	
-            // fusion °úÁ¤. 
+            // fusion ê³¼ì •. 
             node* leftNode;
             node* rightNode;
             
@@ -504,7 +504,7 @@ int tree::_delete(int val){
     return 0;
 }
 
-//searchÀÇ °æ¿ì °£´ÜÇÑ ¼øÈ¸. 
+//searchì˜ ê²½ìš° ê°„ë‹¨í•œ ìˆœíšŒ. 
 node* tree::_search(int val){
     node* searchNode = root;
     
@@ -527,7 +527,7 @@ node* tree::_search(int val){
 }
 
 
-// while -> level ¸¸Å­ ½ÇÇà 
+// while -> level ë§Œí¼ ì‹¤í–‰ 
 // floorNum = level node 
 
 
